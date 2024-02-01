@@ -1,3 +1,14 @@
+yasio-5.0.0
+
+  1. Improve kcp implementation
+  2. Fix pure udp not handle packet forward
+  3. Improve echo_client & echo_server
+  4. Improve ssl handshake
+  5. Update self-signed ssl certs for ssltest
+  6. Fix docs ci
+  7. Fix speedtest typo
+  
+  
 yasio-4.1.4
 
   1. Fix destroy of object_pool with mutex not thread-safe

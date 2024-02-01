@@ -150,10 +150,10 @@ if (ANDROID)
     endif()
 endif()
 
-include_directories(
+set(YASIO_INC_DIRS 
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_BINARY_DIR}
-    ${THIRDPART_INC}
+    "${CMAKE_CURRENT_SOURCE_DIR}/3rdparty"
 )
 
 ### no deps
@@ -207,6 +207,7 @@ if (YASIO_ENABLE_KCP)
   set(YASIO_CORE ${YASIO_CORE} 
     ${PROJECT_SOURCE_DIR}/3rdparty/kcp/ikcp.c
   )
+  list(APPEND YASIO_INC_DIRS  "${PROJECT_SOURCE_DIR}/3rdparty/kcp")
 endif()
 if (YASIO_ENABLE_NI)
   set(YASIO_CORE ${YASIO_CORE} 
@@ -236,7 +237,7 @@ if(WIN32 AND YASIO_ENABLE_HPERF_IO)
   set(THIRDPART_SRC 3rdparty/wepoll/wepoll.c)
 endif()
 
-if(YASIO_ENABLE_KCP OR YASIO_ENABLE_LUA OR YASIO_USE_CARES OR YASIO_ENABLE_HALF_FLOAT)
+if(YASIO_ENABLE_KCP)
     include_directories("${PROJECT_SOURCE_DIR}/3rdparty")
 endif()
 
@@ -307,7 +308,8 @@ else ( )
     )
 endif ( )
 
-target_include_directories(${yasio_target_name} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/ ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty)
+message(STATUS "YASIO_INC_DIRS=${YASIO_INC_DIRS}")
+target_include_directories(${yasio_target_name} PUBLIC ${YASIO_INC_DIRS})
 
 if (BUILD_SHARED_LIBS)
     target_compile_definitions(${yasio_target_name} 
