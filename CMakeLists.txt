@@ -1,6 +1,6 @@
 # A multi-platform support c++11 library with focus on asynchronous socket I/O for any client application.
 #
-# Copyright (c) 2012-2023 HALX99.
+# Copyright (c) 2012-present HALX99.
 #
 # Licensed under the MIT License (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 # http://opensource.org/licenses/MIT
@@ -204,10 +204,14 @@ endif()
 file(GLOB YASIO_CORE yasio/*.hpp;yasio/*.cpp;yasio/compiler/*.hpp;yasio/impl/*.hpp;)
 
 if (YASIO_ENABLE_KCP)
-  set(YASIO_CORE ${YASIO_CORE} 
-    ${PROJECT_SOURCE_DIR}/3rdparty/kcp/ikcp.c
-  )
-  list(APPEND YASIO_INC_DIRS  "${PROJECT_SOURCE_DIR}/3rdparty/kcp")
+  if (NOT kcp_SOURCE_DIR)
+      set(YASIO_CORE ${YASIO_CORE} 
+        ${PROJECT_SOURCE_DIR}/3rdparty/kcp/ikcp.c
+      )
+      list(APPEND YASIO_INC_DIRS  "${PROJECT_SOURCE_DIR}/3rdparty/kcp")
+  else()
+      list(APPEND THIRDPART_LIB "kcp")
+  endif()
 endif()
 if (YASIO_ENABLE_NI)
   set(YASIO_CORE ${YASIO_CORE} 
