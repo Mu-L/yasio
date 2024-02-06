@@ -1,3 +1,8 @@
+yasio-5.0.1
+
+  1. Fix UE5 compile error with vs2022
+  
+  
 yasio-5.0.0
 
   1. Improve kcp implementation
