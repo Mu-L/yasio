@@ -129,12 +129,12 @@ extra:
   alternate:
     # Switch to Chinese Simplfied
     - name: 简体中文
-      link: https://yasio.github.io/yasio/
+      link: https://global.simdsoft.com/yasio/
       lang: zh
 
     # Switch to English
     - name: English
-      link: https://yasio.github.io/en/
+      link: https://global.simdsoft.com/yasio/
       lang: en
   version:
     provider: mike

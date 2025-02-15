@@ -20,9 +20,9 @@ date_expire_ts=${date_ts/$date_year/$date_expire_year}
 time_expire_ts=`date -d $date_expire_ts +%s`
 valid_days=$((($time_expire_ts - $time_ts) / 86400))
 v3ext_file=`pwd`/v3.ext
-org_name=yasio
+org_name=simdsoft
 
-issuer_cn="yasio.github.io"
+issuer_cn="global.simdsoft.com"
 issuer_subj="/C=CN/O=$org_name/CN=$issuer_cn"
 
 # Create Self-Signed Root CA(Certificate Authority)

@@ -1,4 +1,4 @@
-<p align="center"><a href="https://yasio.github.io/yasio" target="_blank" rel="noopener noreferrer"><img width="160" src="docs/assets/images/logo.png" alt="yasio logo"></a></p>
+<p align="center"><a href="https://global.simdsoft.com/yasio" target="_blank" rel="noopener noreferrer"><img width="160" src="docs/assets/images/logo.png" alt="yasio logo"></a></p>
 
 # *YASIO* - *Y*et *A*nother *S*ocket *I*/*O* library.
 
@@ -48,7 +48,7 @@
 
 ## Docomentation
 
-* [https://yasio.github.io/en](https://yasio.github.io/en)
+* [https://global.simdsoft.com/yasio/](https://global.simdsoft.com/yasio/)
 
 ## Simple run tcptest with g++
 
