@@ -25,7 +25,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Version: 4.1.1
+Version: 4.3.2
 
 The pod_vector aka array_buffer concepts:
    a. The memory model is similar to to std::vector, but only accept trivially_copyable(no destructor & no custom copy constructor) types
@@ -255,7 +255,17 @@ public:
     _YASIO_VERIFY_RANGE(!empty(), "pod_vector: out of range!");
     return *_Myfirst;
   }
+  const value_type& front() const
+  {
+    _YASIO_VERIFY_RANGE(!empty(), "pod_vector: out of range!");
+    return *_Myfirst;
+  }
   value_type& back()
+  {
+    _YASIO_VERIFY_RANGE(!empty(), "pod_vector: out of range!");
+    return _Myfirst[_Mysize - 1];
+  }
+  const value_type& back() const
   {
     _YASIO_VERIFY_RANGE(!empty(), "pod_vector: out of range!");
     return _Myfirst[_Mysize - 1];
